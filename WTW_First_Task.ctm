@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Task schemaVersion="5.4" runNLS="never">
+	<Registration>
+	 <Name>Convert Character to Numeric</Name>
+	 <Description>Converts a character variable to a numeric variable</Description>
+	 <Version>3.81</Version>
+	</Registration>
+	
+	<Metadata>
+		
+		<DataSources>
+		   <DataSource name="inlibname">
+		   <Roles>
+ 			  <Role name="invarname" type="C" minVars="1" maxVars="1">
+                 Character variable to convert</Role>
+           </Roles>
+           </DataSource>
+		</DataSources>
+
+		<Options>
+		   <Option name="dataTab" inputType="string">DATA</Option>
+           <Option name="dataGroup" inputType="string">DATA</Option>
+           <Option name="rolesGroup" inputType="string">ROLES</Option>
+           <Option name="optionsGroup" inputType="string">OPTIONS</Option>
+           
+           <Option name="samename" inputType="checkbox">Same name?</Option>
+           <Option name="informatType" inputType="combobox">Category
+              of informat:</Option>
+           <Option name="numericChoice" inputType="string" returnValue="BEST">
+              Numeric</Option>
+           <Option name="dateChoice" inputType="string" returnValue="DDMMYY">
+              Date</Option>
+           <Option name="informatWidth" inputType="numbertext" minValue="1"
+              defaultValue="10">Informat width:</Option>
+           <Option name="outputDSName" inputType="outputdata" defaultValue="Test"
+              required="true">Name of output data set:</Option>
+		</Options>
+		
+	</Metadata>
+	
+	<UI>
+	   <Container option="dataTab">
+          <Group option="dataGroup" open="true">
+             <DataItem data="inlibname" />
+          </Group>
+          
+          <Group option="rolesGroup" open="true">
+             <RoleItem role="invarname" />
+          </Group>
+          
+          <Group option="optionsGroup" open="true">
+             <OptionItem option="samename" />
+             <OptionChoice option="informatType">
+                <OptionItem option="numericChoice" />
+                <OptionItem option="dateChoice" />
+             </OptionChoice>
+             <OptionItem option="informatWidth" />
+             <OptionItem option="outputDSName" />
+          </Group>
+       </Container>
+	</UI>
+	
+  	<CodeTemplate>
+		<![CDATA[
+
+        #set($charvar=$invarname.get(0))
+ 
+        #set($informat = "${informatType}${informatWidth}.")
+ 
+        data $outputDSName;
+        #if ($samename=='1')
+           #set($newCol = "${charvar}_old")
+           set $inlibname(rename=$charvar=$newCol);
+           $charvar = input($newCol,$informat);
+           drop $newCol;
+        #else
+           #set($newCol = "${charvar}_new")
+           set $inlibname;
+           $newCol = input($charvar,$informat);
+        #end
+        
+        run;
+		]]>
+	</CodeTemplate>
+</Task>

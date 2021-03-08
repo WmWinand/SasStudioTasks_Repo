@@ -99,10 +99,14 @@
   	<CodeTemplate>
 		<![CDATA[
 
-        #set($charvar=$invarname.get(0))
+        #foreach($item in $invarname) #set($charvar = $item)#end
  
-        #set($informat = "${informatType}${informatWidth}.")
- 
+        #if($informatType == "numericChoice")
+           #set($informat = "${numericInformat}${informatWidth}.")
+        #else
+           #set($informat = "${dateInformat}${informatWidth}.")
+        #end
+
         data $outputDSName;
         #if ($samename=='1')
            #set($newCol = "${charvar}_old")

@@ -84,6 +84,18 @@
        </Container>
 	</UI>
 	
+	<Dependencies>
+       <Dependency condition="$informatType == 'numericChoice'">
+          <Target action="show" conditionResult="true" option="numericInformat"/>
+          <Target action="hide" conditionResult="true" option="dateInformat"/>
+       </Dependency>
+       <Dependency condition="$informatType == 'dateChoice'">
+          <Target action="hide" conditionResult="true" option="numericInformat"/>
+          <Target action="show" conditionResult="true" option="dateInformat"/>
+       </Dependency>
+    </Dependencies>
+
+	
   	<CodeTemplate>
 		<![CDATA[
 

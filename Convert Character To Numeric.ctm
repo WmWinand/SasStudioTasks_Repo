@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Task schemaVersion="5.4" runNLS="never">
-	<Registration>
-	 <Name>Convert Character to Numeric</Name>
-	 <Description>Converts a character variable to a numeric variable</Description>
-	 <Version>3.81</Version>
-	</Registration>
+	
+	    <Registration>
+        <Name>Convert Character to Numeric</Name>
+        <Description>Convert Character to Numeric</Description>
+        <GUID>9D3F4022-79A0-4D47-A7B1-A83579EB6504</GUID>
+        <Procedures>DATASETS</Procedures>
+        <Version>3.81</Version>
+        <Links>
+            <Link href="http://documentation.sas.com/?softwareId=STUDIOMID&amp;softwareVersion=3.8&amp;softwareContextId=tasks&amp;requestor=inapp">SAS Studio Task Reference Guide</Link>
+            <Link href=""/>
+            <Link href=""/>
+            <Link href="http://documentation.sas.com/?softwareId=MVADOC&amp;softwareVersion=3.8_9.4&amp;softwareContextId=proc_datasets&amp;requestor=inapp">The DATASETS Procedure</Link>
+            <Link href=""/>
+            <Link href=""/>
+            <Link href="http://support.sas.com/training/studio">SAS Tutorials</Link>
+        </Links>
+        <Category>Data</Category>
+    </Registration>
+	
 	
 	<Metadata>
 		

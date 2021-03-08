@@ -26,10 +26,24 @@
            <Option name="samename" inputType="checkbox">Same name?</Option>
            <Option name="informatType" inputType="combobox">Category
               of informat:</Option>
-           <Option name="numericChoice" inputType="string" returnValue="BEST">
+           <Option name="numericChoice" inputType="string">
               Numeric</Option>
-           <Option name="dateChoice" inputType="string" returnValue="DDMMYY">
+           <Option name="dateChoice" inputType="string">
               Date</Option>
+              
+           <Option name="numericInformat" inputType="combobox">
+              Numeric informat:</Option>
+           <Option name="numeric1" inputType="string" returnValue="BEST">
+              BEST</Option>
+           <Option name="numeric2" inputType="string" returnValue="COMMA">
+              COMMA</Option>
+           <Option name="dateInformat" inputType="combobox">Date informat:
+              </Option>
+           <Option name="date1" inputType="string" returnValue="DDMMYY">
+              DDMMYY</Option>
+           <Option name="date2" inputType="string" returnValue="MMDDYY">
+              MMDDYY</Option>
+              
            <Option name="informatWidth" inputType="numbertext" minValue="1"
               defaultValue="10">Informat width:</Option>
            <Option name="outputDSName" inputType="outputdata" defaultValue="Test"
@@ -54,6 +68,16 @@
                 <OptionItem option="numericChoice" />
                 <OptionItem option="dateChoice" />
              </OptionChoice>
+             
+             <OptionChoice option="numericInformat">
+                <OptionItem option="numeric1" />
+                <OptionItem option="numeric2" />
+             </OptionChoice>
+             <OptionChoice option="dateInformat">
+                <OptionItem option="date1" />
+                <OptionItem option="date2" />
+             </OptionChoice>
+             
              <OptionItem option="informatWidth" />
              <OptionItem option="outputDSName" />
           </Group>

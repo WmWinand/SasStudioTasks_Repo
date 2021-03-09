@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <Tasks>
         <Task>
-            <Name label="???"/>
-                <Template uri="./???.ctm"/>
+            <Name label="Convert Character To Numeric"/>
+                <Template uri="./Convert Character To Numeric.ctm"/>
          </Task>
         
     </Tasks>
